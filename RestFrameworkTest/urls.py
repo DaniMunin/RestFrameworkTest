@@ -5,12 +5,12 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     'ProposalVoting.views',
-    url(r'^proposal$', 'proposal_list'),
-    url(r'^proposals/(?P<pk>[0-9]+)$', 'proposal_detail'),
+    url(r'^proposals$', 'proposal_list'),
+    url(r'^proposals/(?P<pk>[0-9]+)$', views.proposal_detail.as_view()),
     url(r'^users/(?P<pk>[0-9]+)$',views.user_detail.as_view()),
     url(r'^users$',views.user_list.as_view()), url(r'^proposal$', 'proposal_list'),
-    url(r'^proposal/$', 'proposal_list'),
-    url(r'^proposals/(?P<pk>[0-9]+)/$', 'proposal_detail'),
+    url(r'^proposals/$', 'proposal_list'),
+    url(r'^proposals/(?P<pk>[0-9]+)/$', views.proposal_detail.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/$',views.user_detail.as_view()),
     url(r'^users/$',views.user_list.as_view()),
 
