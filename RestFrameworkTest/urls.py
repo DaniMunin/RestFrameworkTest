@@ -1,10 +1,19 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
+from ProposalVoting import views
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    'ProposalVoting.views',
+    url(r'^proposal$', 'proposal_list'),
+    url(r'^proposals/(?P<pk>[0-9]+)$', 'proposal_detail'),
+    url(r'^users/(?P<pk>[0-9]+)$',views.user_detail.as_view()),
+    url(r'^users$',views.user_list.as_view()), url(r'^proposal$', 'proposal_list'),
+    url(r'^proposal/$', 'proposal_list'),
+    url(r'^proposals/(?P<pk>[0-9]+)/$', 'proposal_detail'),
+    url(r'^users/(?P<pk>[0-9]+)/$',views.user_detail.as_view()),
+    url(r'^users/$',views.user_list.as_view()),
+
     # Examples:
     # url(r'^$', 'RestFrameworkTest.views.home', name='home'),
     # url(r'^RestFrameworkTest/', include('RestFrameworkTest.foo.urls')),
